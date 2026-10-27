@@ -38,7 +38,7 @@ metadata:
 
 The [Agent Skills specification](https://agentskills.io/specification) defines these frontmatter fields:
 
-![[Attachments/YAML-Frontmatter-Reference.png]]
+!(Attachments/YAML-Frontmatter-Reference.png)
 
 Note that `version` is not a top-level spec field. Use the `metadata` map for it:
 ```
@@ -62,7 +62,7 @@ metadata:
 ## <u>How Progressive Disclosure Works</u>
 The key architectural innovation of Agent Skills is **progressive disclosure**: a three-tier loading strategy that keeps context efficient.
 
-![[AI_Progressive_Disclosure_tokens_efficiency.png]]
+!(AI_Progressive_Disclosure_tokens_efficiency.png)
 
 **At startup**, the agent loads only names and descriptions of all available skills. If you have 20 skills, that is roughly 1,000 tokens of metadata. The agent knows _what_ it can do, but carries none of the detailed instructions.
 
@@ -113,7 +113,7 @@ In short: skills make large cloud models more organised. They make small local m
 
 ## <u>Before and After: What a Skill Actually Changes</u>
 
-![[Attachments/Screenshot 2026-10-27 at 10.00.56 AM.png]]
+!(Attachments/Screenshot 2026-10-27 at 10.00.56 AM.png)
 
 ## <u>Best Practices for Writing Great Skills</u>
 
@@ -193,7 +193,7 @@ Agent Skills are powerful, and that power requires care. Cisco's AI Defense team
 
 ## <u>Industry Adoption</u>
 
-![[Attachments/Screenshot 2026-10-27 at 10.08.40 AM.png]]
+!(Attachments/Screenshot 2026-10-27 at 10.08.40 AM.png)
 
 ## <u>Conclusion</u>
 
