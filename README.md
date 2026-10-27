@@ -2,7 +2,7 @@
 
 ## <u>Introduction</u>
 
-Agent Skills is an open standard for packaging reusable AI agent capabilities as plain Markdown files. A skill is a folder with a `SKILL.md` file containing metadata and instructions. When an agent activates a skill, it loads the ==instructions== on demand, follows them as an explicit workflow, and produces structured, repeatable output. Skills solve the problem of ==bloated== prompts and ==inconsistent== behaviour.
+Agent Skills is an open standard for packaging reusable AI agent capabilities as plain Markdown files. A skill is a folder with a `SKILL.md` file containing metadata and instructions. When an agent activates a skill, it loads the `instructions` on demand, follows them as an explicit workflow, and produces structured, repeatable output. Skills solve the problem of `bloated` prompts and `inconsistent` behaviour.
 
 ## <u>Structure</u>
 
@@ -25,7 +25,7 @@ code-review/
     sample-review.md
 ```
 
-The agent only ==reads== these when it actually ==needs== them, not everything at startup. We can also only write a single `SKILL.md` file for a simple implementation.
+The agent only `reads` these when it actually `needs` them, not everything at startup. We can also only write a single `SKILL.md` file for a simple implementation.
 
 ## <u>YAML Frontmatter Reference</u>
 
@@ -51,10 +51,10 @@ metadata:
 ## <u>What Agent Skills are NOT</u>
 
 - **Skills are not prompts**
->Skills ==load dynamically== based on context. Prompts are always present.
+>Skills `load dynamically` based on context. Prompts are always present.
 
 - **Skills are not deterministic**
->The same skill can produce slightly different outputs. If you need ==guaranteed structure== combine a skill with structured ==output constraints== (grammar, JSON schema) or use tool calls for the critical parts.
+>The same skill can produce slightly different outputs. If you need `guaranteed structure` combine a skill with structured `output constraints` (grammar, JSON schema) or use tool calls for the critical parts.
 
 - **Skills are not a replacement for MCP**
 >MCP provides secure connectivity to external systems: databases, APIs, file systems. Skills provide procedural knowledge for _using_ those systems. A "Database Query" skill might instruct the agent on how to write safe SQL and handle edge cases, while an MCP server provides the actual database connection. Different layers, same stack.
@@ -66,18 +66,18 @@ The key architectural innovation of Agent Skills is **progressive disclosure**:
 
 **At startup**, the agent loads only names and descriptions of all available skills. If you have 20 skills, that is roughly 1,000 tokens of metadata. The agent knows _what_ it can do, but carries none of the detailed instructions.
 
-**When a skill is activated**, the full SKILL.md body is ==loaded into context==. The agent now has the detailed instructions, output format, and rules for that specific task.
+**When a skill is activated**, the full SKILL.md body is `loaded into context`. The agent now has the detailed instructions, output format, and rules for that specific task.
 
 This means you can give an agent access to a large library of capabilities without paying the token cost for all of them at once. The context window stays clean, the agent stays focused, and you only pay for what you use.
 
 ## <u>What Problems Do Agent Skills Solve in Practice?</u>
 
-Without skills, a multi-capability agent needs all instructions loaded simultaneously. With 10 workflows averaging 500 tokens each, that is 5,000 tokens of permanent context overhead. With skills, the overhead is ~500 tokens for the catalog plus ~500 tokens for whichever skill is currently active. A ==10x reduction==.
+Without skills, a multi-capability agent needs all instructions loaded simultaneously. With 10 workflows averaging 500 tokens each, that is 5,000 tokens of permanent context overhead. With skills, the overhead is ~500 tokens for the catalog plus ~500 tokens for whichever skill is currently active. A `10x reduction`.
 ### **Consistent, repeatable output**
-A skill specifies an exact output format, a set of rules, and optionally examples. Every time the agent runs that skill, it follows the same structure. This is the difference between "review this code" (unpredictable) and "review this code using the code-review skill" (==consistent format, every time==).
+A skill specifies an exact output format, a set of rules, and optionally examples. Every time the agent runs that skill, it follows the same structure. This is the difference between "review this code" (unpredictable) and "review this code using the code-review skill" (`consistent format, every time`).
 
 ### **Modularity**
-Add a new capability? Drop a folder. Remove one? Delete the folder. Update a workflow? Edit the Markdown. ==No code changes, no redeployment, no risk of breaking unrelated features==.
+Add a new capability? Drop a folder. Remove one? Delete the folder. Update a workflow? Edit the Markdown. `No code changes, no redeployment, no risk of breaking unrelated features`.
 
 ### **Version control and governance**
 Skills are plain text files. They live in your Git repository. You can:
@@ -87,13 +87,13 @@ Skills are plain text files. They live in your Git repository. You can:
 - Require approval before behaviour changes go live
 
 ### **Team collaboration**
-Because skills are Markdown, anyone can write or improve them. A domain expert (lawyer, compliance officer, product manager) can author a skill without touching code. Developers review and deploy it. This separates "==what the AI should do==" (domain knowledge) from "==how the AI works==" (infrastructure).
+Because skills are Markdown, anyone can write or improve them. A domain expert (lawyer, compliance officer, product manager) can author a skill without touching code. Developers review and deploy it. This separates "`what the AI should do`" (domain knowledge) from "`how the AI works`" (infrastructure).
 >Both teams contribute to what they know best.
 
 ## <u>Why Agent Skills Make Even More Sense for Local AI Models</u>
 
 ### **Smaller models need more guidance**
-Cloud models are pre-trained. A 4B or 8B parameter model running on your GPU does not have the same capacity to guess your intent. It needs explicit instructions: ==what format to follow, what constraints to respect, what to include and what to skip==. `SKILL.md` compensate for a smaller model's weaker instruction-following by giving it the specific, structured guidance it needs.
+Cloud models are pre-trained. A 4B or 8B parameter model running on your GPU does not have the same capacity to guess your intent. It needs explicit instructions: `what format to follow, what constraints to respect, what to include and what to skip`. `SKILL.md` compensate for a smaller model's weaker instruction-following by giving it the specific, structured guidance it needs.
 
 ### **Context windows are tighter**
 Cloud models now offer 128K to 1M token context windows. Local models typically run with 4K to 32K contexts, sometimes up to 128K but at a real performance cost (memory, speed). Every token matters more.
