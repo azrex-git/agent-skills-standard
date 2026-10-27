@@ -38,7 +38,7 @@ metadata:
 
 The [Agent Skills specification](https://agentskills.io/specification) defines these frontmatter fields:
 
-![[YAML-Frontmatter-Reference.png]]
+![[Attachments/YAML-Frontmatter-Reference.png]]
 
 Note that `version` is not a top-level spec field. Use the `metadata` map for it:
 ```
@@ -113,7 +113,7 @@ In short: skills make large cloud models more organised. They make small local m
 
 ## <u>Before and After: What a Skill Actually Changes</u>
 
-![[Screenshot 2026-10-27 at 10.00.56 AM.png]]
+![[Attachments/Screenshot 2026-10-27 at 10.00.56 AM.png]]
 
 ## <u>Best Practices for Writing Great Skills</u>
 
@@ -193,7 +193,7 @@ Agent Skills are powerful, and that power requires care. Cisco's AI Defense team
 
 ## <u>Industry Adoption</u>
 
-![[Screenshot 2026-10-27 at 10.08.40 AM.png]]
+![[Attachments/Screenshot 2026-10-27 at 10.08.40 AM.png]]
 
 ## <u>Conclusion</u>
 
